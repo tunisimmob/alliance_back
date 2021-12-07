@@ -23,7 +23,9 @@ public class Projet implements Serializable {
     @JsonIgnore
     private List<Appartement> appartements;
 
-
+    @OneToMany(mappedBy = "projet")
+    @JsonIgnore
+    private List<Villa> villas;
 
 
     @OneToMany(mappedBy = "projet")
@@ -211,6 +213,14 @@ public class Projet implements Serializable {
 
     public void setAppartements(List<Appartement> appartements) {
         this.appartements = appartements;
+    }
+
+    public List<Villa> getVillas() {
+        return villas;
+    }
+
+    public void setVillas(List<Villa> villas) {
+        this.villas = villas;
     }
 
 
