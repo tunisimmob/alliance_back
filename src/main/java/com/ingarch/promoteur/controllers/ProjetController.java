@@ -50,10 +50,9 @@ public class ProjetController {
         return projetRepository.findAll();
     }
 
-
     @GetMapping("/projetencours")
-    public Projet getProjetencours() {
-        return projetRepository.findProjetByEtat("en_cours");
+    public List<Projet> getProjetencours() {
+        return projetRepository.findProjetByEtatOrderById("en_cours");
     }
 
     @GetMapping("/projetenfinis")
@@ -68,14 +67,11 @@ public class ProjetController {
         return ResponseEntity.ok().body(projet);
     }
 
-
     @DeleteMapping("/projet/{id}")
     public ResponseEntity<Void> deleteProjet(@PathVariable Long id) {
         projetRepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
-
-
 
     @GetMapping("/countproject")
     public Long countprojet() {

@@ -19,6 +19,6 @@ public interface ProjetRepository extends JpaRepository<Projet, Long> {
     @Transactional
     List<Projet> findProjetByEtatOrderById(String etat);
 
-    Projet findProjetByEtat(String etat);
+    List<Projet> findProjetByEtat(String etat);
 
 }
